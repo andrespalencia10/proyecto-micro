@@ -1,0 +1,14 @@
+version: "2.18"
+
+services:
+  proyecto-micro:
+    container_name: proyect-micro
+    image: proyect-micro:v1
+    build:
+      context: .
+    ports:
+      - "4002:4002"
+    networks:
+      - proyectos-app-iud
+networks:
+  proyectos-app-iud:
