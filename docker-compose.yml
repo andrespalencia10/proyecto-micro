@@ -8,7 +8,20 @@ services:
       context: .
     ports:
       - "4002:4002"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=4002
+    networks:
+      - proyectos-app-iud
+  balanceador-carga:
+    container_name:  balanceador-carga
+    image:  balanceador-carga:v1
+    build:
+      context: ./balanceador
+    ports:
+      - "4004:80"
     networks:
       - proyectos-app-iud
 networks:
   proyectos-app-iud:
+ 
